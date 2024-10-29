@@ -1,0 +1,19 @@
+services:
+  postgres:
+    container_name: postgres-multidb
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DATABASE: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - ./initdb/:/docker-entrypoint-initdb.d/
+  multidb-web:
+    pull_policy: build
+    build:
+      context: .
+    depends_on:
+      - postgres
+    network_mode: service:postgres

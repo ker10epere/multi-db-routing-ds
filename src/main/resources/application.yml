@@ -1,0 +1,19 @@
+spring:
+  main:
+    web-application-type: none
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: postgresql
+
+datasource-one:
+  datasource:
+    url: jdbc:postgresql:one
+    username: postgres
+    password: postgres
+datasource-two:
+  datasource:
+    url: jdbc:postgresql:two
+    username: postgres
+    password: postgres
+
